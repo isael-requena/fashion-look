@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Look Shalom - Beauty Salon</title>
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            /* New refined color palette */
+            --bg-color: #f8f1ff;
+            --primary: #b76e79;
+            --primary-dark: #9c4e59;
+            --primary-light: #d8a0a8;
+            --accent: #6d4875;
+            --accent-light: #9a7aa0;
+            --white: #ffffff;
+            --text-dark: #3a3a3a;
+            --text-light: #6e6e6e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        /* Header styles - smaller size */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(183, 110, 121, 0.15);
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            height: 75px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+        .title-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Decorative elements */
+        .decorative-line {
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--primary-light), var(--primary), var(--primary-light), transparent);
+            margin: 2rem auto;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 5px;
+        }
+
+        /* Cards container */
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .services-container::before {
+            content: '✂';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: var(--primary);
+            background: var(--bg-color);
+            padding: 0 1rem;
+        }
+
+        /* Card styles - enhanced design */
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            width: 350px;
+            box-shadow: 0 10px 30px rgba(109, 72, 117, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(183, 110, 121, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(183, 110, 121, 0.2);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            z-index: 1;
+        }
+
+        .card-title {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .image-slider {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .slider-images {
+            display: flex;
+            animation: slide 15s infinite;
+            width: 300%;
+        }
+
+        .slider-images img {
+            width: 33.333%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0%, 30% {
+                transform: translateX(0);
+            }
+            33%, 63% {
+                transform: translateX(-33.333%);
+            }
+            66%, 96% {
+                transform: translateX(-66.666%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .card-content {
+            padding: 1.8rem;
+            position: relative;
+        }
+
+        .card-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15%;
+            right: 15%;
+            height: 1px;
+            background: rgba(183, 110, 121, 0.1);
+        }
+
+        .card-description {
+            margin-bottom: 1.8rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary-light);
+        }
+
+        .contact-btn {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(183, 110, 121, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(to right, var(--primary-dark), var(--accent));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(183, 110, 121, 0.4);
+        }
+
+        .contact-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Accent elements */
+        .accent {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .accent-1 {
+            top: -15px;
+            right: -15px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(154, 122, 160, 0.15);
+        }
+
+        .accent-2 {
+            bottom: -20px;
+            left: -20px;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(216, 160, 168, 0.15);
+        }
+
+          /* Information section */
+          .info-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 3px;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .info-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(109, 72, 117, 0.1);
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .info-card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .info-card-title svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .info-card-content {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .address {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            display: block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            background: linear-gradient(to right, var(--primary-light), var(--accent-light));
+            color: var(--white);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1200px) {
+            .services-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .service-card {
+                width: 100%;
+                max-width: 450px;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-container {
+                padding: 2rem 1rem;
+            }
+            
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .logo-container {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-05xgboHO5l8udajfpFCUDan4FOiYAB.png" alt="Fashion Look Shalom Logo" class="logo">
+            <div class="title-container">
+                <h1>Fashion Look Shalom</h1>
+                <p class="subtitle">Eleva tu experiencia de belleza!</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="decorative-line"></div>
+
+    <div class="services-container">
+        <!-- Barber Card -->
+        <div class="service-card">
+            <div class="accent accent-1"></div>
+            <div class="accent accent-2"></div>
+            <div class="card-title">Barbería</div>
+            <div class="image-slider">
+                <div class="slider-images">
+                    <img src="assets/images/products/barber/1.jpg" alt="Haircut">
+                    <img src="assets/images/products/barber/2.jpg" alt="Beard Trim">
+                    <img src="assets/images/products/barber/3.jpg" alt="Hair Styling">
+                </div>
+            </div>
+            <div class="card-content">
+                <p class="card-description">
+                    Disfrute de servicios de barbería premium con nuestros profesionales cualificados. Ofrecemos cortes de pelo, recortes de barba, estilismo y más para que luzca radiante.
+                </p>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=584241733037&text=Hola%20!%20He%20visto%20su%20p%C3%A1gina%20web%20y%20estoy%20muy%20interesado%20en%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20barbería." class="contact-btn">
+                    Contactar
+                </a>
+            </div>
+        </div>
+
+        <!-- Manicure Card -->
+        <div class="service-card">
+            <div class="accent accent-1"></div>
+            <div class="accent accent-2"></div>
+            <div class="card-title">Manicure</div>
+            <div class="image-slider">
+                <div class="slider-images">
+                    <img src="assets/images/products/manicure/1.jpg" alt="Classic Manicure">
+                    <img src="assets/images/products/manicure/2.jpg" alt="Gel Nails">
+                    <img src="assets/images/products/manicure/3.jpg" alt="Nail Art">
+                </div>
+            </div>
+            <div class="card-content">
+                <p class="card-description">
+                    Consiente tus manos con nuestros lujosos servicios de manicura. Desde manicuras clásicas hasta uñas de gel y diseños de uñas elaborados, haremos que tus manos luzcan espectaculares.
+                </p>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=584241733037&text=Hola%20!%20He%20visto%20su%20p%C3%A1gina%20web%20y%20estoy%20muy%20interesado%20en%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20Manicure." class="contact-btn">
+                    Contactar
+                </a>
+            </div>
+        </div>
+
+        <!-- Eyebrow Card -->
+        <div class="service-card">
+            <div class="accent accent-1"></div>
+            <div class="accent accent-2"></div>
+            <div class="card-title">Cejas y Pestañas</div>
+            <div class="image-slider">
+                <div class="slider-images">
+                    <img src="assets/images/products/eyebrow/1.jpg" alt="Eyebrow Shaping">
+                    <img src="assets/images/products/eyebrow/2.jpg" alt="Eyebrow Tinting">
+                    <img src="assets/images/products/eyebrow/3.jpg" alt="Microblading">
+                </div>
+            </div>
+            <div class="card-content">
+                <p class="card-description">
+                    Perfecciona tu look con nuestros servicios expertos de cejas. Ofrecemos perfilado, tinte y microblading para realzar tu belleza natural y enmarcar tu rostro.
+                </p>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=584241733037&text=Hola%20!%20He%20visto%20su%20p%C3%A1gina%20web%20y%20estoy%20muy%20interesado%20en%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20Cejas%20y%20Pestañas." class="contact-btn">
+                    Contactar
+                </a>
+            </div>
+        </div>
+    </div>
+
+     <!-- Information Section -->
+     <section class="info-section" id="contact">
+        <h2 class="section-title">Información</h2>
+        <div class="info-cards">
+            <!-- Location Card -->
+            <div class="info-card">
+                <div class="info-card-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Ubicación
+                </div>
+                <div class="info-card-content">
+                    <p class="address">
+                        AV. SUR 4 ENTRE<br>
+                        MUNICIPAL Y REDUCTO<br>
+                        EDIF. SAN PABLO LOCAL 4
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hours Card -->
+            <div class="info-card">
+                <div class="info-card-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    Horario
+                </div>
+                <div class="info-card-content">
+                    <ul class="hours-list">
+                        <li><span>Lunes - Viernes:</span> <span>9:00 AM - 7:00 PM</span></li>
+                        <li><span>Sábado:</span> <span>9:00 AM - 6:00 PM</span></li>
+                        <li><span>Domingo:</span> <span>Cerrado</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="info-card">
+                <div class="info-card-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Contacto
+                </div>
+                <div class="info-card-content contact-info">
+                    <a href="tel:+584241733037">+58 0424 173 30 37</a>
+                    <a href="mailto:info@fashionlookshalom.com">info@fashionlookshalom.com</a>
+                    <a href="https://www.instagram.com/fashionlookshalom" target="_blank">@fashionlookshalom</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fashion Look Shalom. All rights reserved.</p>
+    </footer>
+</body>
+</html>
